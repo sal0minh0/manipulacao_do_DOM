@@ -1,5 +1,4 @@
-// Questão 1: Função para mudar o texto
-function mudarTexto() {
+window.addEventListener('load', function() {
     document.getElementById("texto").innerHTML = "Texto atualizado via DOM";
-    }
+});
 

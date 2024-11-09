@@ -1,16 +1,14 @@
-// Função para alterar a cor de fundo ao passar o mouse
-function mudarCor() {
-    document.getElementById("wallpaper").style.backgroundColor = "rgb(255, 165, 0)"; // Cor laranja
+function detectarTecla(event) {
+    console.log(`Tecla pressionada: ${event.key}`);
+    alert(`Tecla pressionada: ${event.key}`);
+
+    // Impedir a inserção de números
+    if (event.key >= '0' && event.key <= '9') {
+        console.log("Tecla numérica bloqueada.");
+        alert("Tecla numérica bloqueada.");
+        event.preventDefault(); // Impede a inserção da tecla
+    }
 }
 
-// Função para restaurar a cor original quando o mouse sair
-function restaurarCor() {
-    document.getElementById("wallpaper").style.backgroundColor = "rgb(195, 240, 255)"; // Cor original
-}
-
-// Função para adicionar os eventos de mouse sem sobrescrever window.onload
-window.addEventListener("load", function() {
-    const fundoElement = document.getElementById("wallpaper");
-    fundoElement.addEventListener("mouseover", mudarCor);
-    fundoElement.addEventListener("mouseout", restaurarCor);
-});
+// Adicionando o evento de teclado ao campo de texto
+document.getElementById("campoTexto").addEventListener("keydown", detectarTecla);
